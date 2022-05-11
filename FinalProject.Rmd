@@ -1,0 +1,60 @@
+---
+title: "FinalProject631-02"
+author: "Andy Xiong"
+date: "5/11/2022"
+output: pdf_document
+---
+
+# Introduction
+
+## Final Project Draft
+
+## What?
+
+We are going to look at multiple NFL Passing Data set from the year 2010-2018. They are all seperate data sets.
+
+## Why?
+
+I want to see if we see the trend for passing yards go up over time and see if their were any specific person responsible. I also wanted to try and combine multiple data sets into one on R Studio.
+
+## How?
+
+I want to explore the data using R functions we learned in class. I also want to attempt regression somehow. 
+
+#Body
+
+This is how I loaded the data sets into R using read.csv
+
+```{r}
+NFLSeason10 <- read.csv('C:/Users/hmoob/Documents\\pass-2010.csv')
+NFLSeason11 <- read.csv('C:/Users/hmoob/Documents\\pass-2011.csv')
+NFLSeason12 <- read.csv('C:/Users/hmoob/Documents\\pass-2012.csv')
+NFLSeason13 <- read.csv('C:/Users/hmoob/Documents\\pass-2013.csv')
+NFLSeason14 <- read.csv('C:/Users/hmoob/Documents\\pass-2014.csv')
+NFLSeason15 <- read.csv('C:/Users/hmoob/Documents\\pass-2015.csv')
+NFLSeason16 <- read.csv('C:/Users/hmoob/Documents\\pass-2016.csv')
+NFLSeason17 <- read.csv('C:/Users/hmoob/Documents\\pass-2017.csv')
+NFLSeason18 <- read.csv('C:/Users/hmoob/Documents\\pass-2018.csv')
+```
+
+
+
+
+```{r}
+NFL_All <- rbind(NFLSeason17, NFLSeason16, NFLSeason15, NFLSeason14, NFLSeason13, NFLSeason12, NFLSeason11, NFLSeason10)
+```
+
+# Topics From Class
+
+## Summarizing Data
+
+## Dsitrubution
+
+## Regression
+
+## R Markdown
+
+## Github
+
+
+# Conclusion
