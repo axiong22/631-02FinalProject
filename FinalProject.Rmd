@@ -4,6 +4,10 @@ author: "Andy Xiong"
 date: "5/11/2022"
 output: pdf_document
 ---
+```{r}
+library(dplyr)
+```
+
 
 We are going to look at multiple NFL Passing Data set from the year 2010-2018. They are all separate data sets so we can look into an individual year. 
 I want to see if we see the trend for passing yards go up over time and see if their were any specific person responsible. 
@@ -22,18 +26,27 @@ NFLSeason16 <- read.csv('C:/Users/hmoob/Documents\\pass-2016.csv')
 NFLSeason17 <- read.csv('C:/Users/hmoob/Documents\\pass-2017.csv')
 NFLSeason18 <- read.csv('C:/Users/hmoob/Documents\\pass-2018.csv')
 ```
-We then combine the data sets. Here is where I had to omit the most recent year because for some reason it had one fewer variables than the other sets of data.
+We then combine the data sets. Here is where I had to omit the most recent year because for some reason it had one fewer variables than the other sets of data. However, I realized this data set did not already have a column for year.
 ```{r}
 NFL_All <- rbind(NFLSeason17, NFLSeason16, NFLSeason15, NFLSeason14, NFLSeason13, NFLSeason12, NFLSeason11, NFLSeason10)
 ```
 
-Here we use a few functions we did in class to better visualize and understand the data set. Every Year in the NFL there is a few other positions who attempt throws and
-I did not want their data so took action in that as well. 
+I searched the internet and this is what I found that would help me. It reads the file name from the path the folder I setup in my directory and generates the year using the mutate and substr function.
+```{r}
+list_files <- list.files("C:/Users/hmoob/Documents/archive (5)", full.names = TRUE)
+NFLData <- lapply(list_files, function(fname) {
+    NFL_All <- read.csv(fname, header = TRUE, stringsAsFactors = FALSE) %>%
+        mutate(year = substr(basename(fname), 6, 9))
+}) %>% bind_rows()
+```
+
 
 ```{r}
-names(NFL_All)
+names(NFLData)
 ```
-Changing string variable to Factor to try and plot them but then I realized it was not a good visualization since it was hard to fit the all the names on a single graph.
+Changing string variable to Factor to try and plot them but 
+then I realized it was not a good visualization since it
+was hard to fit the all the names on a single graph.
 ```{r}
 NFLSeason18$Player <- as.factor(NFLSeason18$Player)
 ```
@@ -41,10 +54,18 @@ NFLSeason18$Player <- as.factor(NFLSeason18$Player)
 ```{r}
 class(NFLSeason18$Player)
 ```
+Here we use a few functions we did in class to better visualize and understand the data set. 
+Every Year in the NFL there is a few other positions who attempt 
+throws and
+I did not want their data so took action in that as well.  
 Ultimately I had to eliminate low outliers so I used subset to restrict a minimum of 500 yards.
 
 ```{r}
 NFLData<- subset(NFL_All, NFL_All$Yds > 500)
+```
+
+```{r}
+mean(NFLData$Yds)
 ```
 
 ```{r}
@@ -55,15 +76,10 @@ boxplot(NFLData$Yds)
 plot(NFLData$Age, NFLData$Yds)
 ```
 
-```{r}
-hist(NFLData$Yds)
-```
-
-
 
 
 ```{r}
-m1 <- lm(Age ~ Yds, data = NFLData)
+m1 <- lm(QBR ~ Yds, data = NFLData)
 ```
 ```{r}
 summary(m1)
@@ -75,7 +91,8 @@ cor(NFLData$Age, NFLData$Yds)
 ```
 
 
-R Markdown is wonderful. It feels like having a stat calculator on hand. The visualization is very helpful.
+R Markdown is wonderful. It feels like having a stat calculator on hand. 
+The visualization is very helpful.
 I had a few problems with Github. But the one that costed me the most was when I tried to delete a file on the website.
 It will no longer let me commit or pull/push. 
 The help sites helped at time but it was though to trouble shoot as I was not sure with Github program was useful to troubleshoot with. 
