@@ -27,7 +27,8 @@ We then combine the data sets. Here is where I had to omit the most recent year 
 NFL_All <- rbind(NFLSeason17, NFLSeason16, NFLSeason15, NFLSeason14, NFLSeason13, NFLSeason12, NFLSeason11, NFLSeason10)
 ```
 
-Here we use a few functions we did in class to better visualize and understand the data set. Every Year in the NFL there is a few other positions who attempt throws and I did not want their data so took action in that as well. 
+Here we use a few functions we did in class to better visualize and understand the data set. Every Year in the NFL there is a few other positions who attempt throws and
+I did not want their data so took action in that as well. 
 
 ```{r}
 names(NFL_All)
