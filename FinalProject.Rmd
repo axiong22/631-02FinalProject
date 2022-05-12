@@ -41,7 +41,7 @@ NFLSeason18$Player <- as.factor(NFLSeason18$Player)
 ```{r}
 class(NFLSeason18$Player)
 ```
-Ultimately I had to eliminate low outliers so I used subset yo restirct a mininum of 500 yards.
+Ultimately I had to eliminate low outliers so I used subset yo restrict a mininum of 500 yards.
 
 ```{r}
 NFLData<- subset(NFL_All, NFL_All$Yds > 500)
@@ -56,6 +56,9 @@ boxplot(NFLData$Yds)
 plot(NFLData$Age, NFLData$Yds)
 ```
 
+```{r}
+hist(NFLData$Yds)
+```
 
 
 ## Distrubution
