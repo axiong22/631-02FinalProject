@@ -48,9 +48,34 @@ NFL_All <- rbind(NFLSeason17, NFLSeason16, NFLSeason15, NFLSeason14, NFLSeason13
 
 ## Summarizing Data
 
-## Dsitrubution
+Changing string variable to Factor
+```{r}
+NFLSeason18$Player <- as.factor(NFLSeason18$Player)
+```
+
+
+
+```{r}
+plot(NFL_All$Age, NFL_All$Yds)
+```
+
+
+
+## Distrubution
 
 ## Regression
+
+```{r}
+m1 <- lm(Age ~ Yds, data = NFL_All)
+```
+```{r}
+summary(m1)
+```
+
+
+```{r}
+cor(NFL_All$Age, NFL_All$Yds)
+```
 
 ## R Markdown
 
