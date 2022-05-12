@@ -77,9 +77,10 @@ summary(m1)
 cor(NFL_All$Age, NFL_All$Yds)
 ```
 
-## R Markdown
 
-## Github
-
+R Markdown is wonderful. It feels like having a stat calculator on hand. The visualization is very helpful.
+I had a few problems with Github. But the one that costed me the most was when I tried to delete a file on the website.
+It will no longer let me commit or pull/push. 
+The help sites helped at time but it was though to trouble shoot as I was not sure with Github program was useful to troubleshoot with. 
 
 # Conclusion
