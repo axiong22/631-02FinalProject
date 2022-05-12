@@ -34,7 +34,8 @@ We then combine the data sets. Here is where I had to omit the most recent year 
 NFL_All <- rbind(NFLSeason17, NFLSeason16, NFLSeason15, NFLSeason14, NFLSeason13, NFLSeason12, NFLSeason11, NFLSeason10)
 ```
 
-I searched the internet and this is what I found that would help me. It reads the file name from the path the folder I setup in my directory and generates the year using the mutate and substr function.
+I searched the internet and this is what I found that would help me. It reads the file name from the path the folder
+I setup in my directory and generates the year using the mutate and substr function.
 ```{r}
 list_files <- list.files("C:/Users/hmoob/Documents/archive (5)", full.names = TRUE)
 NFLData <- lapply(list_files, function(fname) {
@@ -71,7 +72,12 @@ NFLData500<- subset(NFLData, NFLData$Yds > 500)
 mean(NFLData500$Yds)
 ```
 
-As I was looking for different visualizations this one stood out to me as it didn't need color and was able to highlight what a regular plot graph isn't able to. This plot does show why the "Prime" of a Quarterback can be considered 30 years old, hitting 3000+ yards is not easy. As there is a biggest dot there is good evidence in proving that theory. Although not exactly a distribution curve i thought this visualization did a good job as well.
+As I was looking for different visualizations this one stood out to me as it didn't need color 
+and was able to highlight what a regular plot graph isn't able to. 
+This plot does show why the "Prime" of a Quarterback can be considered 30 years old, 
+hitting 3000+ yards is not easy. As there is a biggest dot there is good evidence in 
+proving that theory. Although not exactly a distribution 
+curve i thought this visualization did a good job as well.
 ```{r}
 ggplot(NFLData500, aes(x = Age, y = Yds))+
   geom_count()
