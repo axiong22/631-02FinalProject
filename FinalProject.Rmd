@@ -21,17 +21,12 @@ NFLSeason16 <- read.csv('C:/Users/hmoob/Documents\\pass-2016.csv')
 NFLSeason17 <- read.csv('C:/Users/hmoob/Documents\\pass-2017.csv')
 NFLSeason18 <- read.csv('C:/Users/hmoob/Documents\\pass-2018.csv')
 ```
-
-
-
-
+We then combine the data sets
 ```{r}
 NFL_All <- rbind(NFLSeason17, NFLSeason16, NFLSeason15, NFLSeason14, NFLSeason13, NFLSeason12, NFLSeason11, NFLSeason10)
 ```
 
-# Topics From Class
-
-## Summarizing Data
+Here we use a few functions we did in class to better visualize and understand the data set. Every Year in the NFL there is a few other positions who attempt throws and I did not want their data. 
 
 ```{r}
 names(NFL_All)
@@ -46,6 +41,8 @@ NFLSeason18$Player <- as.factor(NFLSeason18$Player)
 ```{r}
 class(NFLSeason18$Player)
 ```
+Ultimately I had to eliminate low outliers so I used subset yo restirct a mininum of 500 yards.
+
 ```{r}
 NFLData<- subset(NFL_All, NFL_All$Yds > 500)
 ```
