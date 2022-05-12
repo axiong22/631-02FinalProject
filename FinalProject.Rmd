@@ -61,25 +61,26 @@ I did not want their data so took action in that as well.
 Ultimately I had to eliminate low outliers so I used subset to restrict a minimum of 500 yards.
 
 ```{r}
-NFLData<- subset(NFL_All, NFL_All$Yds > 500)
+NFLData500<- subset(NFLData, NFLData$Yds > 500)
 ```
 
 ```{r}
-mean(NFLData$Yds)
+mean(NFLData500$Yds)
 ```
 
 ```{r}
-boxplot(NFLData$Yds)
+boxplot(NFLData500$Yds)
 ```
 
 ```{r}
-plot(NFLData$Age, NFLData$Yds)
+plot(NFLData500$Age, NFLData500$Yds)
 ```
 
 
 
+
 ```{r}
-m1 <- lm(QBR ~ Yds, data = NFLData)
+m1 <- lm(QBR ~ Yds, data = NFLData500)
 ```
 ```{r}
 summary(m1)
@@ -87,7 +88,7 @@ summary(m1)
 
 Here calculate the correlation between Age and yards. It is very weak relationship.
 ```{r}
-cor(NFLData$Age, NFLData$Yds)
+cor(NFLData500$Age, NFLData500$Yds)
 ```
 
 
