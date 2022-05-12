@@ -82,7 +82,7 @@ R Markdown is wonderful. It feels like having a stat calculator on hand. The vis
 I had a few problems with Github. But the one that costed me the most was when I tried to delete a file on the website.
 It will no longer let me commit or pull/push. 
 The help sites helped at time but it was though to trouble shoot as I was not sure with Github program was useful to troubleshoot with. 
-
-# Conclusion
-
-In conclusion, I was a little disappointed in not being able to categorize the variable player into what I wanted it to be. I was able to look at other cool factors such as age and yards. If, I had more time I would try to see if somehow I can combine all the player variables into one, in example have Tom Brady as a variable and it would span across all the years.
+In conclusion, I was a little disappointed in not being able to categorize the variable player into what I wanted it to be. 
+I was able to look at other cool factors such as age and yards. If, I had more time I would try to see if 
+somehow I can combine all the player variables into one, in example 
+have Tom Brady as a variable and it would span across all the years.
