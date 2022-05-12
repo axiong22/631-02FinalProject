@@ -33,7 +33,7 @@ I did not want their data so took action in that as well.
 ```{r}
 names(NFL_All)
 ```
-Changing string variable to Factor
+Changing string variable to Factor to try and plot them but then I realized it was not a good visualization since it was hard to fit the all the names on a single graph.
 ```{r}
 NFLSeason18$Player <- as.factor(NFLSeason18$Player)
 ```
@@ -60,7 +60,7 @@ hist(NFLData$Yds)
 ```
 
 
-## Distrubution
+
 
 ```{r}
 m1 <- lm(Age ~ Yds, data = NFLData)
