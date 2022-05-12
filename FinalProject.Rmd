@@ -5,7 +5,10 @@ date: "5/11/2022"
 output: pdf_document
 ---
 
-We are going to look at multiple NFL Passing Data set from the year 2010-2018. They are all separate data sets so we can look into an individual year. I want to see if we see the trend for passing yards go up over time and see if their were any specific person responsible. I also wanted to try and combine multiple data sets into one on R Studio. I want to explore the data using R functions we learned in class. I also want to attempt regression somehow. This is how I loaded the data sets into R using read.csv
+We are going to look at multiple NFL Passing Data set from the year 2010-2018. They are all separate data sets so we can look into an individual year. 
+I want to see if we see the trend for passing yards go up over time and see if their were any specific person responsible. 
+I also wanted to try and combine multiple data sets into one on R Studio. I want to explore the data using R functions we learned in class. 
+I also want to attempt regression somehow. This is how I loaded the data sets into R using read.csv
 
 ```{r}
 NFLSeason10 <- read.csv('C:/Users/hmoob/Documents\\pass-2010.csv')
