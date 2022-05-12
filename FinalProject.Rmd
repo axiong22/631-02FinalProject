@@ -71,7 +71,7 @@ NFLData500<- subset(NFLData, NFLData$Yds > 500)
 mean(NFLData500$Yds)
 ```
 
-As I was looking for different visualizations this one stood out to me as it didn't need color and was able to highlight what a regular plot graph isn't able to. This plot does show why the "Prime" of a Quarterback can be considered 30 years old, hitting 3000+ yards is not easy. As there is a biggest dot there is good evidence in proving that theory.
+As I was looking for different visualizations this one stood out to me as it didn't need color and was able to highlight what a regular plot graph isn't able to. This plot does show why the "Prime" of a Quarterback can be considered 30 years old, hitting 3000+ yards is not easy. As there is a biggest dot there is good evidence in proving that theory. Although not exactly a distribution curve i thought this visualization did a good job as well.
 ```{r}
 ggplot(NFLData500, aes(x = Age, y = Yds))+
   geom_count()
