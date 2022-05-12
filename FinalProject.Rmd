@@ -8,8 +8,9 @@ output: pdf_document
 We are going to look at multiple NFL Passing Data set from the year 2010-2018. They are all separate data sets so we can look into an individual year. 
 I want to see if we see the trend for passing yards go up over time and see if their were any specific person responsible. 
 I also wanted to try and combine multiple data sets into one on R Studio. I want to explore the data using R functions we learned in class. 
-I also want to attempt regression somehow. This is how I loaded the data sets into R using read.csv
+I also want to look at regression using examples form class.
 
+This is how I loaded the data sets into R using read.csv
 ```{r}
 NFLSeason10 <- read.csv('C:/Users/hmoob/Documents\\pass-2010.csv')
 NFLSeason11 <- read.csv('C:/Users/hmoob/Documents\\pass-2011.csv')
@@ -21,18 +22,16 @@ NFLSeason16 <- read.csv('C:/Users/hmoob/Documents\\pass-2016.csv')
 NFLSeason17 <- read.csv('C:/Users/hmoob/Documents\\pass-2017.csv')
 NFLSeason18 <- read.csv('C:/Users/hmoob/Documents\\pass-2018.csv')
 ```
-We then combine the data sets
+We then combine the data sets. Here is where I had to omit the most recent year because for some reason it had one fewer variables than the other sets of data.
 ```{r}
 NFL_All <- rbind(NFLSeason17, NFLSeason16, NFLSeason15, NFLSeason14, NFLSeason13, NFLSeason12, NFLSeason11, NFLSeason10)
 ```
 
-Here we use a few functions we did in class to better visualize and understand the data set. Every Year in the NFL there is a few other positions who attempt throws and I did not want their data. 
+Here we use a few functions we did in class to better visualize and understand the data set. Every Year in the NFL there is a few other positions who attempt throws and I did not want their data so took action in that as well. 
 
 ```{r}
 names(NFL_All)
 ```
-
-
 Changing string variable to Factor
 ```{r}
 NFLSeason18$Player <- as.factor(NFLSeason18$Player)
@@ -41,7 +40,7 @@ NFLSeason18$Player <- as.factor(NFLSeason18$Player)
 ```{r}
 class(NFLSeason18$Player)
 ```
-Ultimately I had to eliminate low outliers so I used subset yo restrict a mininum of 500 yards.
+Ultimately I had to eliminate low outliers so I used subset to restrict a minimum of 500 yards.
 
 ```{r}
 NFLData<- subset(NFL_All, NFL_All$Yds > 500)
@@ -50,7 +49,6 @@ NFLData<- subset(NFL_All, NFL_All$Yds > 500)
 ```{r}
 boxplot(NFLData$Yds)
 ```
-
 
 ```{r}
 plot(NFLData$Age, NFLData$Yds)
@@ -63,8 +61,6 @@ hist(NFLData$Yds)
 
 ## Distrubution
 
-## Regression
-
 ```{r}
 m1 <- lm(Age ~ Yds, data = NFLData)
 ```
@@ -72,7 +68,7 @@ m1 <- lm(Age ~ Yds, data = NFLData)
 summary(m1)
 ```
 
-
+Here calculate the correlation between Age and yards. It is very weak relationship.
 ```{r}
 cor(NFLData$Age, NFLData$Yds)
 ```
