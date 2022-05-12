@@ -7,10 +7,13 @@ output: pdf_document
 ```{r}
 library(dplyr)
 ```
+```{r}
+library(ggplot2)
+```
 
 
 We are going to look at multiple NFL Passing Data set from the year 2010-2018. They are all separate data sets so we can look into an individual year. 
-I want to see if we see the trend for passing yards go up over time and see if their were any specific person responsible. 
+I wanted to see if we see the trend for passing yards go up over time and see if their were any specific person responsible. 
 I also wanted to try and combine multiple data sets into one on R Studio. I want to explore the data using R functions we learned in class. 
 I also want to look at regression using examples form class.
 
@@ -68,22 +71,29 @@ NFLData500<- subset(NFLData, NFLData$Yds > 500)
 mean(NFLData500$Yds)
 ```
 
+As I was looking for different visualizations this one stood out to me as it didn't need color and was able to highlight what a regular plot graph isn't able to. This plot does show why the "Prime" of a Quarterback can be considered 30 years old, hitting 3000+ yards is not easy. As there is a biggest dot there is good evidence in proving that theory.
 ```{r}
-boxplot(NFLData500$Yds)
+ggplot(NFLData500, aes(x = Age, y = Yds))+
+  geom_count()
+  labs(title = "QBR over the years with box plot", x = "year", y = "Yards")
+```
+```{r}
+ggplot(NFLData500, aes(x = year, y = QBR))+
+  geom_boxplot()
+  labs(title = "QBR over the years with box plot", x = "year", y = "QBR")
 ```
 
-```{r}
-plot(NFLData500$Age, NFLData500$Yds)
-```
-
-
+When comparing QBR and Age, to see if players regress as they get older, we can see no strong indication of this theory. 
 
 
 ```{r}
-m1 <- lm(QBR ~ Yds, data = NFLData500)
+m1 <- lm(QBR ~ Age, data = NFLData500)
 ```
 ```{r}
 summary(m1)
+```
+```{r}
+plot(m1)
 ```
 
 Here calculate the correlation between Age and yards. It is very weak relationship.
@@ -93,11 +103,19 @@ cor(NFLData500$Age, NFLData500$Yds)
 
 
 R Markdown is wonderful. It feels like having a stat calculator on hand. 
-The visualization is very helpful.
-I had a few problems with Github. But the one that costed me the most was when I tried to delete a file on the website.
-It will no longer let me commit or pull/push. 
-The help sites helped at time but it was though to trouble shoot as I was not sure with Github program was useful to troubleshoot with. 
-In conclusion, I was a little disappointed in not being able to categorize the variable player into what I wanted it to be. 
-I was able to look at other cool factors such as age and yards. If, I had more time I would try to see if 
+The visualization is very helpful. I feel that R markdown is can be a really good 
+Visualization software if given the time to learn them all. 
+I found so many things about visualization online that we did 
+not cover in class.
+I had a few problems with Github. But the one that costed me the 
+most was when I tried to delete a file on the website.
+It will no longer let me commit or pull/push and I just 
+started a new repository. The help site helped at time but it was though 
+to trouble shoot as I was not sure with Github program was useful to troubleshoot with for R. 
+In conclusion, I was a little disappointed in not being able to categorize the 
+variable player names into what I wanted it to be. 
+I was able to look at other cool factors such as Age, QBR and yards. If, I had more time, 
+I would try to see if 
 somehow I can combine all the player variables into one, in example 
-have Tom Brady as a variable and it would span across all the years.
+have Tom Brady as a variable and it would span across all the years. 
+I also would have to like to run more calculations to explore other stats as well. 
