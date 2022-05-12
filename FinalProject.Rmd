@@ -46,11 +46,17 @@ NFLSeason18$Player <- as.factor(NFLSeason18$Player)
 ```{r}
 class(NFLSeason18$Player)
 ```
+```{r}
+NFLData<- subset(NFL_All, NFL_All$Yds > 500)
+```
 
+```{r}
+boxplot(NFLData$Yds)
+```
 
 
 ```{r}
-plot(NFL_All$Age, NFL_All$Yds)
+plot(NFLData$Age, NFLData$Yds)
 ```
 
 
